@@ -1,4 +1,4 @@
-@section('title', 'Daily Collection | Gremeen')
+@section('title', 'Due Collection | Gremeen')
 @extends('layouts.layout')
 
 @section('content')
@@ -9,7 +9,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="normal-table-list mg-t-30">
                         <div class="basic-tb-hd">
-                            <h2>Calection table</h2>
+                            <h2>Due Collection</h2>
                         </div>
                         <div class="bsc-tbl-bdr">
                             <table class="table table-bordered">

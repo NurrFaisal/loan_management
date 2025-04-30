@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard One | Notika - Notika Admin Template</title>
+    <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -87,16 +87,7 @@
                 <div class="mobile-menu">
                     <nav id="dropdown">
                         <ul class="mobile-menu-nav">
-                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
-                                <ul class="collapse dropdown-header-top">
-                                    <li><a href="index.html">Dashboard One</a></li>
-                                    <li><a href="index-2.html">Dashboard Two</a></li>
-                                    <li><a href="index-3.html">Dashboard Three</a></li>
-                                    <li><a href="index-4.html">Dashboard Four</a></li>
-                                    <li><a href="analytics.html">Analytics</a></li>
-                                    <li><a href="widgets.html">Widgets</a></li>
-                                </ul>
-                            </li>
+                            <li class="active"><a href="{{route('dashboard')}}"> Daily Calection</a></li>
                             <li><a data-toggle="collapse" data-target="#demoevent" href="#">New Samety</a>
                                 <ul id="demoevent" class="collapse dropdown-header-top">
                                     <li><a href="inbox.html">Inbox</a></li>
@@ -189,21 +180,21 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                    <li class="active"><a href="#"> Daily Calection</a>
+                    <li><a href="{{route('dashboard')}}"> Daily Calection</a>
                     </li>
-                    <li><a data-toggle="tab" href="#mailbox"> New Samety</a>
+                    <li><a  href="{{route('somitee')}}"> Somitees</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Interface"> New Member</a>
+                    <li><a  href="{{route('member')}}">Members</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Charts"> New Loan</a>
+                    <li><a href="{{route('loan')}}"> Loan</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Tables"> Empolyee</a>
+                    <li><a href="{{route('employee')}}"> Empolyee</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Forms"> Cash Book</a>
+                    <li><a href="{{route('cashbook')}}"> Cashbook</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Appviews"> Due Calection</a>
+                    <li><a  href="{{route('due-collection')}}"> Due Collection</a>
                     </li>
-                    <li><a data-toggle="tab" href="#Page"> Vaucher</a>
+                    <li><a href="{{route('voucher')}}"> Voucher</a>
                     </li>
                 </ul>
 
@@ -212,286 +203,9 @@
     </div>
 </div>
 <!-- Main Menu area End-->
-<div class="breadcomb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcomb-list">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="breadcomb-wp">
-                                <div class="breadcomb-icon">
-                                    <i class="notika-icon notika-windows"></i>
-                                </div>
-                                <div class="breadcomb-ctn">
-                                    <h2>Normal Table</h2>
-                                    <p>Welcome to Notika <span class="bread-ntd">Admin Template</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
-                            <div class="breadcomb-report">
-                                <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Start Status area -->
 <!-- Normal Table area Start-->
-
-
-<div class="normal-table-area">
-    <div class="container">
-
-
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="normal-table-list mg-t-30">
-                    <div class="basic-tb-hd">
-                        <h2>Calection table</h2>
-
-                    </div>
-                    <div class="bsc-tbl-bdr">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Loan</th>
-                                <th>Savince</th>
-                                <th>DPS</th>
-                                <th>Insorence</th>
-                                <th>Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Alexandra</td>
-                                <td>10000</td>
-                                <td>100</td>
-                                <td>300</td>
-                                <td>100</td>
-                                <td>#</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Madeleine</td>
-                                <td>Hollaway</td>
-                                <td>@hollway</td>
-                                <td>Cheese</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Sebastian</td>
-                                <td>Johnston</td>
-                                <td>@sebastian</td>
-                                <td>Jaycee</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Mitchell</td>
-                                <td>Christin</td>
-                                <td>@mitchell4u</td>
-                                <td>AdskiDeAnus</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Elizabeth</td>
-                                <td>Belkitt</td>
-                                <td>@belkitt</td>
-                                <td>Goat</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Benjamin</td>
-                                <td>Parnell</td>
-                                <td>@wayne234</td>
-                                <td>Pokie</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Katherine</td>
-                                <td>Buckland</td>
-                                <td>@anitabelle</td>
-                                <td>Wokie</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>14</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>15</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>16</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>17</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>18</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>19</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>20</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>21</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>22</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>23</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>24</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>25</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>26</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>27</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>28</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>29</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            <tr>
-                                <td>30</td>
-                                <td>Nicholas</td>
-                                <td>Walmart</td>
-                                <td>@mwalmart</td>
-                                <td>Spike</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-    </div>
-</div>
+@yield('content')
 <!-- Normal Table area End-->
 
 
@@ -540,9 +254,9 @@
 <script src="{{asset('assets/js')}}/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 <!-- jvectormap JS
     ============================================ -->
-<script src="{{asset('assets/js')}}/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="{{asset('assets/js')}}/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="{{asset('assets/js')}}/jvectormap/jvectormap-active.js"></script>
+{{--<script src="{{asset('assets/js')}}/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>--}}
+{{--<script src="{{asset('assets/js')}}/jvectormap/jquery-jvectormap-world-mill-en.js"></script>--}}
+{{--<script src="{{asset('assets/js')}}/jvectormap/jvectormap-active.js"></script>--}}
 <!-- sparkline JS
     ============================================ -->
 <script src="{{asset('assets/js')}}/sparkline/jquery.sparkline.min.js"></script>
@@ -555,13 +269,13 @@
 <script src="{{asset('assets/js')}}/flot/flot-active.js"></script>
 <!-- knob JS
     ============================================ -->
-<script src="{{asset('assets/js')}}/knob/jquery.knob.js"></script>
-<script src="{{asset('assets/js')}}/knob/jquery.appear.js"></script>
-<script src="{{asset('assets/js')}}/knob/knob-active.js"></script>
+{{--<script src="{{asset('assets/js')}}/knob/jquery.knob.js"></script>--}}
+{{--<script src="{{asset('assets/js')}}/knob/jquery.appear.js"></script>--}}
+{{--<script src="{{asset('assets/js')}}/knob/knob-active.js"></script>--}}
 <!--  wave JS
     ============================================ -->
-<script src="{{asset('assets/js')}}/wave/waves.min.js"></script>
-<script src="{{asset('assets/js')}}/wave/wave-active.js"></script>
+{{--<script src="{{asset('assets/js')}}/wave/waves.min.js"></script>--}}
+{{--<script src="{{asset('assets/js')}}/wave/wave-active.js"></script>--}}
 <!--  todo JS
     ============================================ -->
 <script src="{{asset('assets/js')}}/todo/jquery.todo.js"></script>
@@ -577,7 +291,7 @@
 <script src="{{asset('assets/js')}}/main.js"></script>
 <!-- tawk chat JS
     ============================================ -->
-<script src="{{asset('assets/js')}}/tawk-chat.js"></script>
+{{--<script src="{{asset('assets/js')}}/tawk-chat.js"></script>--}}
 </body>
 
 </html>
