@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('father_name');
             $table->text('address');
-            $table->bigInteger('nid');
-            $table->string('phone');
-            $table->bigInteger('salary');
+            $table->string('nid')->unique();
+            $table->string('phone')->unique();
+            $table->decimal('salary', 10, 2);
             $table->timestamps();
         });
     }

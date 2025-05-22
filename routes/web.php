@@ -26,16 +26,20 @@ Route::get('/', function () {
 //})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/employee', [EmployeeController::class, 'employee'])->name('employee');
-    Route::get('/somitee', [DashboardController::class, 'somitee'])->name('somitee');
-    Route::get('/member', [DashboardController::class, 'member'])->name('member');
-    Route::get('/loan', [DashboardController::class, 'loan'])->name('loan');
-    Route::get('/cashbook', [DashboardController::class, 'cashbook'])->name('cashbook');
-    Route::get('/due-collection', [DashboardController::class, 'dueCollection'])->name('due-collection');
-    Route::get('/voucher', [DashboardController::class, 'voucher'])->name('voucher');
+    Route::GET('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::GET('/employee', [EmployeeController::class, 'employee'])->name('employee');
+    Route::POST('/employee', [EmployeeController::class, 'store'])->name('employees.store');
+
+
+    Route::GET('/somitee', [DashboardController::class, 'somitee'])->name('somitee');
+    Route::GET('/member', [DashboardController::class, 'member'])->name('member');
+    Route::GET('/loan', [DashboardController::class, 'loan'])->name('loan');
+    Route::GET('/cashbook', [DashboardController::class, 'cashbook'])->name('cashbook');
+    Route::GET('/due-collection', [DashboardController::class, 'dueCollection'])->name('due-collection');
+    Route::GET('/voucher', [DashboardController::class, 'voucher'])->name('voucher');
+
+    Route::GET('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
