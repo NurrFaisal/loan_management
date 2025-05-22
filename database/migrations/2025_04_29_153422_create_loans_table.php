@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('somitee_id');
             $table->unsignedInteger('member_id');
+            $table->unsignedInteger('day_id');
             $table->bigInteger('loan_amount');
             $table->tinyInteger('interest');
             $table->bigInteger('total_loan');

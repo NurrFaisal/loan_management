@@ -11,11 +11,6 @@ class DashboardController extends Controller
         return view('pages.index');
     }
 
-    public function employee()
-    {
-        return view('pages.employee');
-    }
-
     public function somitee()
     {
         return view('pages.somitee');

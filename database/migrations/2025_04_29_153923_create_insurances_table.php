@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedInteger('somitee_id');
             $table->unsignedInteger('member_id');
+            $table->unsignedInteger('day_id');
             $table->string('type');
             $table->integer('installment');
             $table->bigInteger('total_amount');

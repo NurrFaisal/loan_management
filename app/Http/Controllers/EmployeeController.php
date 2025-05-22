@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    //
+    public function employee()
+    {
+        return view('pages.employee');
+    }
 }

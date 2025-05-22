@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/employee', [DashboardController::class, 'employee'])->name('employee');
+    Route::get('/employee', [EmployeeController::class, 'employee'])->name('employee');
     Route::get('/somitee', [DashboardController::class, 'somitee'])->name('somitee');
     Route::get('/member', [DashboardController::class, 'member'])->name('member');
     Route::get('/loan', [DashboardController::class, 'loan'])->name('loan');

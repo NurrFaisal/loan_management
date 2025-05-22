@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('nid');
             $table->text('phone');
             $table->unsignedInteger('somitee_id');
+            $table->unsignedInteger('day_id');
             $table->text('photo')->nullable();
             $table->text('address');
             $table->integer('admission_fee');

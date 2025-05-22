@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('somitees', function (Blueprint $table) {
+        Schema::create('days', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedInteger('employee_id');
-            $table->unsignedInteger('branch_id');
-            $table->unsignedInteger('day_id');
-            $table->string('somitee_day');
             $table->date('date');
-            $table->text('description')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('somitees');
+        Schema::dropIfExists('days');
     }
 };
