@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEmployeeRequest;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -14,6 +15,8 @@ class EmployeeController extends Controller
 
     public function store(StoreEmployeeRequest $request)
     {
-        return $request;
+        $validated = $request->validated();
+        Employee::create($validated);
+        return redirect()->back()->with('success', 'Employee created successfully.');
     }
 }

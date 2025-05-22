@@ -59,6 +59,16 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="{{asset('assets/js')}}/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap Growl -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+
+    <!-- Animate.css (optional but recommended) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <script src="{{asset('assets/js')}}/notification/bootstrap-growl.min.js"></script>
+
 </head>
 
 <body>
@@ -292,6 +302,7 @@
 <!-- tawk chat JS
     ============================================ -->
 {{--<script src="{{asset('assets/js')}}/tawk-chat.js"></script>--}}
+
 </body>
 
 </html>
