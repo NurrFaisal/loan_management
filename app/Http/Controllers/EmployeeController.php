@@ -10,7 +10,8 @@ class EmployeeController extends Controller
 {
     public function employee()
     {
-        return view('pages.employee');
+        $employees = Employee::orderBy('id', 'desc')->get();
+        return view('pages.employee', compact('employees'));
     }
 
     public function store(StoreEmployeeRequest $request)
