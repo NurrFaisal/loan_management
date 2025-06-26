@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="{{asset('assets/css')}}/wave/waves.min.css">
     <!-- main CSS
 		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/css')}}/chosen/chosen.css">
     <link rel="stylesheet" href="{{asset('assets/css')}}/main.css">
     <!-- style CSS
 		============================================ -->
@@ -277,6 +278,10 @@
 <script src="{{asset('assets/js')}}/flot/jquery.flot.resize.js"></script>
 <script src="{{asset('assets/js')}}/flot/curvedLines.js"></script>
 <script src="{{asset('assets/js')}}/flot/flot-active.js"></script>
+
+<!--  chosen JS
+		============================================ -->
+<script src="{{asset('assets/js')}}/chosen/chosen.jquery.js"></script>
 <!-- knob JS
     ============================================ -->
 {{--<script src="{{asset('assets/js')}}/knob/jquery.knob.js"></script>--}}

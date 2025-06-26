@@ -102,30 +102,33 @@
                             <h2 class="pull-left">Employees</h2>
                             <button type="button" style="background: #00c292; color: #fff" class="btn btn-default pull-right" data-toggle="modal" data-target="#employeeModal">Add New</button>
                         </div>
-
                         <div class="bsc-tbl-bdr">
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Loan</th>
-                                    <th>Savince</th>
-                                    <th>DPS</th>
-                                    <th>Insorence</th>
-                                    <th>Status</th>
+                                    <th>Father Name</th>
+                                    <th>Address</th>
+                                    <th>NID</th>
+                                    <th>Phone</th>
+                                    <th>Salary</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($employees as $employee)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Alexandra</td>
-                                    <td>10000</td>
-                                    <td>100</td>
-                                    <td>300</td>
-                                    <td>100</td>
+                                    <td>{{$employee->id}}</td>
+                                    <td>{{$employee->name}}</td>
+                                    <td>{{$employee->father_name}}</td>
+                                    <td>{{$employee->address}}</td>
+                                    <td>{{$employee->nid}}</td>
+                                    <td>{{$employee->phone}}</td>
+                                    <td>{{$employee->salary}}</td>
                                     <td>#</td>
                                 </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

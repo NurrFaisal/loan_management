@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\SomiteeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::POST('/employee', [EmployeeController::class, 'store'])->name('employees.store');
 
 
-    Route::GET('/somitee', [DashboardController::class, 'somitee'])->name('somitee');
+    Route::GET('/somitee', [SomiteeController::class, 'index'])->name('somitee');
+
     Route::GET('/member', [DashboardController::class, 'member'])->name('member');
     Route::GET('/loan', [DashboardController::class, 'loan'])->name('loan');
     Route::GET('/cashbook', [DashboardController::class, 'cashbook'])->name('cashbook');
