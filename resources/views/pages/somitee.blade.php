@@ -6,14 +6,14 @@
         <div class="container">
             <div class="modal fade" id="employeeModal" role="dialog">
                 <div class="modal-dialog modal-large">
-                    <form action="{{ route('employees.store') }}" method="POST">
+                    <form action="{{ route('somitee.store') }}" method="POST">
                         @csrf
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                                <h2>New Employee</h2>
+                                <h2>New Somitee</h2>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="form-example-wrap">
@@ -28,66 +28,86 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
                                             <div class="form-example-int mg-t-15">
                                                 <div class="form-group">
-                                                    <label>Employee</label>
+                                                    <label for="employee_id">Branch</label>
                                                     <div class="chosen-select-act nk-int-st">
-                                                        <select name="employee" class="form-control input-sm chosen" data-placeholder="Choose a Country...">
+                                                        <select name="employee_id" id="employee_id" class="form-control input-sm chosen" data-placeholder="Select a Branch">
                                                             <option value="">Select One</option>
-                                                            <option value="United States">United States</option>
-                                                            <option value="United Kingdom">United Kingdom</option>
-                                                            <option value="Afghanistan">Afghanistan</option>
-                                                            <option value="Aland Islands">Aland Islands</option>
-                                                            <option value="Albania">Albania</option>
-                                                            <option value="Algeria">Algeria</option>
-                                                            <option value="American Samoa">American Samoa</option>
+                                                            @foreach($employees as $employee)
+                                                                <option value="{{ $employee->id }}" {{ old('branch_id') == $employee->id ? 'selected' : '' }}>
+                                                                    {{ $employee->name }}
+                                                                </option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
-                                                    @error('employee')
-                                                    <p style="color: red" class="text-danger">{{ $message }}</p>
+                                                    @error('branch_id')
+                                                    <p class="text-danger" style="color: red;">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                             </div>
+
                                             <div class="form-example-int mg-t-15">
                                                 <div class="form-group">
-                                                    <label>Address</label>
-                                                    <div class="nk-int-st">
-                                                        <textarea name="address" class="form-control" rows="5" >{{ old('address') }}</textarea>
+                                                    <label for="branch_id">Branch</label>
+                                                    <div class="chosen-select-act nk-int-st">
+                                                        <select name="branch_id" id="branch_id" class="form-control input-sm chosen" data-placeholder="Select a Branch">
+                                                            <option value="">Select One</option>
+                                                            @foreach($branches as $branch)
+                                                                <option value="{{ $branch->id }}" {{ old('branch_id') == $branch->id ? 'selected' : '' }}>
+                                                                    {{ $branch->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
-                                                    @error('address')
-                                                    <p style="color: red" class="text-danger">{{ $message }}</p>
+                                                    @error('branch_id')
+                                                    <p class="text-danger" style="color: red;">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                             </div>
+
                                             <div class="form-example-int mg-t-15">
                                                 <div class="form-group">
-                                                    <label>NID</label>
-                                                    <div class="nk-int-st">
-                                                        <input type="number" name="nid" class="form-control input-sm" value="{{ old('nid') }}">
+                                                    <label for="somitee_day">Somitee Day</label>
+                                                    <div class="chosen-select-act nk-int-st">
+                                                        <select name="somitee_day" id="somitee_day" class="form-control input-sm chosen" data-placeholder="Select a Day">
+                                                            <option value="">Select One</option>
+                                                            <option value="Saturday">Saturday</option>
+                                                            <option value="Sunday">Sunday</option>
+                                                            <option value="Monday">Monday</option>
+                                                            <option value="Tuesday">Tuesday</option>
+                                                            <option value="Wednesday">Wednesday</option>
+                                                            <option value="Thursday">Thursday</option>
+                                                            <option value="Friday">Friday</option>
+                                                        </select>
                                                     </div>
-                                                    @error('nid')
-                                                    <p style="color: red" class="text-danger">{{ $message }}</p>
+                                                    @error('somitee_day')
+                                                    <p class="text-danger" style="color: red;">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-example-int mg-t-15">
+
+                                            <div class="form-example-int">
                                                 <div class="form-group">
-                                                    <label>Phone</label>
+                                                    <label for="date">Date</label>
                                                     <div class="nk-int-st">
-                                                        <input type="text" name="phone" class="form-control input-sm" value="{{ old('phone') }}">
+                                                        <input type="date" name="date" id="date" class="form-control input-sm" value="{{ old('date') }}">
                                                     </div>
-                                                    @error('phone')
-                                                    <p style="color: red" class="text-danger">{{ $message }}</p>
+                                                    @error('date')
+                                                    <p class="text-danger" style="color: red;">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                             </div>
+
+
                                             <div class="form-example-int mg-t-15">
                                                 <div class="form-group">
-                                                    <label>Salary</label>
+                                                    <label>Description</label>
                                                     <div class="nk-int-st">
-                                                        <input type="text" name="salary" class="form-control input-sm" value="{{ old('salary') }}">
+                                                        <textarea name="description" class="form-control" rows="5" >{{ old('description') }}</textarea>
                                                     </div>
-                                                    @error('salary')
+                                                    @error('description')
                                                     <p style="color: red" class="text-danger">{{ $message }}</p>
                                                     @enderror
                                                 </div>
@@ -116,29 +136,28 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Father Name</th>
-                                    <th>Address</th>
-                                    <th>NID</th>
-                                    <th>Phone</th>
-                                    <th>Salary</th>
+                                    <th>Employee Name</th>
+                                    <th>Branch Name</th>
+                                    <th>Day</th>
+                                    <th>Somitee Day</th>
+                                    <th>Date</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
-                                {{$branches}}
-{{--                                <tbody>--}}
-{{--                                @foreach($employees as $employee)--}}
-{{--                                    <tr>--}}
-{{--                                        <td>{{$employee->id}}</td>--}}
-{{--                                        <td>{{$employee->name}}</td>--}}
-{{--                                        <td>{{$employee->father_name}}</td>--}}
-{{--                                        <td>{{$employee->address}}</td>--}}
-{{--                                        <td>{{$employee->nid}}</td>--}}
-{{--                                        <td>{{$employee->phone}}</td>--}}
-{{--                                        <td>{{$employee->salary}}</td>--}}
-{{--                                        <td>#</td>--}}
-{{--                                    </tr>--}}
-{{--                                @endforeach--}}
-{{--                                </tbody>--}}
+                                <tbody>
+                                @foreach($somitees as $somitee)
+                                    <tr>
+                                        <td>{{$somitee->id}}</td>
+                                        <td>{{$somitee->name}}</td>
+                                        <td>{{$somitee->employee_id}}</td>
+                                        <td>{{$somitee->branch_id}}</td>
+                                        <td>{{$somitee->day_id}}</td>
+                                        <td>{{$somitee->somitee_day}}</td>
+                                        <td>{{$somitee->date}}</td>
+                                        <td>#</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>

@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::GET('/somitee', [SomiteeController::class, 'index'])->name('somitee');
+    Route::POST('/somitee', [SomiteeController::class, 'store'])->name('somitee.store');
 
     Route::GET('/member', [DashboardController::class, 'member'])->name('member');
     Route::GET('/loan', [DashboardController::class, 'loan'])->name('loan');

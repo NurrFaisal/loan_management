@@ -12,8 +12,14 @@ class SomiteeController extends Controller
 
     public function index()
     {
+        $employees = [];
+        $somitees = [];
         $branches = Branch::orderBy('name', 'asc')->get();
-        return view('pages.somitee', ['branches' => $branches]);
+        return view('pages.somitee', [
+            'branches' => $branches,
+            'employees' => $employees,
+            'somitees' => $somitees,
+        ]);
     }
 
     public function store(StoreEmployeeRequest $request)
