@@ -50,6 +50,8 @@
     <!-- main CSS
 		============================================ -->
     <link rel="stylesheet" href="{{asset('assets/css')}}/chosen/chosen.css">
+    <link rel="stylesheet" href="{{asset('assets/css')}}/datapicker/datepicker3.css">
+
     <link rel="stylesheet" href="{{asset('assets/css')}}/main.css">
     <!-- style CSS
 		============================================ -->
@@ -278,6 +280,8 @@
 <script src="{{asset('assets/js')}}/flot/jquery.flot.resize.js"></script>
 <script src="{{asset('assets/js')}}/flot/curvedLines.js"></script>
 <script src="{{asset('assets/js')}}/flot/flot-active.js"></script>
+<script src="{{asset('assets/js')}}/vendor/jquery-1.12.4.min.js"></script>
+<script src="{{asset('assets/js')}}/datapicker/bootstrap-datepicker.js"></script>
 
 <!--  chosen JS
 		============================================ -->
@@ -307,6 +311,15 @@
 <!-- tawk chat JS
     ============================================ -->
 {{--<script src="{{asset('assets/js')}}/tawk-chat.js"></script>--}}
+
+<script>
+    $('#data_1 .date').datepicker({
+        format: 'mm/dd/yyyy',
+        todayHighlight: true,
+        autoclose: true
+    });
+
+</script>
 
 </body>
 
