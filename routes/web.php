@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SomiteeController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,13 @@ Route::middleware('auth')->group(function () {
     Route::GET('/somitee', [SomiteeController::class, 'index'])->name('somitee');
     Route::POST('/somitee', [SomiteeController::class, 'store'])->name('somitee.store');
 
-    Route::GET('/member', [DashboardController::class, 'member'])->name('member');
+//    Route::GET('/member', [DashboardController::class, 'member'])->name('member');
+
+    Route::GET('/member', [MemberController::class, 'member'])->name('member');
+    Route::POST('/member', [MemberController::class, 'store'])->name('member.store');
+
+
+
     Route::GET('/loan', [DashboardController::class, 'loan'])->name('loan');
     Route::GET('/cashbook', [DashboardController::class, 'cashbook'])->name('cashbook');
     Route::GET('/due-collection', [DashboardController::class, 'dueCollection'])->name('due-collection');
