@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('somitee_id');
-            $table->unsignedInteger('member_id');
-            $table->unsignedInteger('day_id');
-            $table->bigInteger('loan_amount');
-            $table->tinyInteger('interest');
-            $table->bigInteger('total_loan');
-            $table->string('type');
-            $table->integer('installment');
-            $table->integer('installment_amount');
+            $table->unsignedBigInteger('member_id');
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->unsignedBigInteger('somitee_id');
+            $table->foreign('somitee_id')->references('id')->on('somitees')->onDelete('cascade');
+            $table->decimal('loan_amount', 10, 2);
+            $table->string('loan_purpose');
+            $table->string('status')->default('pending');
+            $table->unsignedBigInteger('day_id');
             $table->timestamps();
         });
     }

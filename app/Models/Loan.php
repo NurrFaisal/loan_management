@@ -10,26 +10,26 @@ class Loan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'somitee_id',
         'member_id',
-        'day_id',
+        'somitee_id',
         'loan_amount',
-        'interest',
-        'total_loan',
-        'type',
-        'installment',
-        'installment_amount',
-
+        'loan_purpose',
+        'status',
+        'day_id',
     ];
-
-    public function somitee()
-    {
-        return $this->belongsTo(Somitee::class, 'somitee_id');
-    }
 
     public function member()
     {
-        return $this->belongsTo(Member::class, 'member_id');
+        return $this->belongsTo(Member::class);
     }
 
+    public function somitee()
+    {
+        return $this->belongsTo(Somitee::class);
+    }
+
+    public function day()
+    {
+        return $this->belongsTo(Day::class);
+    }
 }

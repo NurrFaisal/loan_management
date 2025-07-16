@@ -11,16 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('insurances', function (Blueprint $table) {
+        Schema::create('days', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedInteger('somitee_id');
-            $table->unsignedInteger('member_id');
-            $table->unsignedInteger('day_id');
-            $table->string('type');
-            $table->integer('installment');
-            $table->bigInteger('total_amount');
-            $table->tinyInteger('status');
             $table->timestamps();
         });
     }
@@ -30,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('insurances');
+        Schema::dropIfExists('days');
     }
 };

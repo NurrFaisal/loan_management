@@ -1,0 +1,55 @@
+@extends('layouts.app')
+
+@section('content')
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ __('Somitees') }}
+    </h2>
+</x-slot>
+
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 text-gray-900">
+                <div class="d-flex justify-content-between mb-3">
+                    <h1 class="fs-4">Somitees</h1>
+                    <a href="{{ route('somitees.create') }}" class="btn btn-primary">Add New Somitee</a>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Employee</th>
+                            <th>Branch</th>
+                            <th>Day</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($somitees as $somitee)
+                            <tr>
+                                <td>{{ $somitee->id }}</td>
+                                <td>{{ $somitee->name }}</td>
+                                <td>{{ $somitee->employee->name }}</td>
+                                <td>{{ $somitee->branch->name }}</td>
+                                <td>{{ $somitee->day->name }}</td>
+                                <td>
+                                    <a href="{{ route('somitees.show', $somitee->id) }}" class="btn btn-info btn-sm">View</a>
+                                    <a href="{{ route('somitees.edit', $somitee->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('somitees.destroy', $somitee->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

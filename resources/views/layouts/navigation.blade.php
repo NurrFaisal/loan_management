@@ -15,6 +15,30 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('branches.index')" :active="request()->routeIs('branches.index')">
+                        {{ __('Branches') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.index')">
+                        {{ __('Employees') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('somitees.index')" :active="request()->routeIs('somitees.index')">
+                        {{ __('Somitees') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('members.index')" :active="request()->routeIs('members.index')">
+                        {{ __('Members') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('loans.index')" :active="request()->routeIs('loans.index')">
+                        {{ __('Loans') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('insurances.index')" :active="request()->routeIs('insurances.index')">
+                        {{ __('Insurances') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('days.index')" :active="request()->routeIs('days.index')">
+                        {{ __('Days') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('holidays.index')" :active="request()->routeIs('holidays.index')">
+                        {{ __('Holidays') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -69,6 +93,30 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('branches.index')" :active="request()->routeIs('branches.index')">
+                {{ __('Branches') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.index')">
+                {{ __('Employees') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('somitees.index')" :active="request()->routeIs('somitees.index')">
+                {{ __('Somitees') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('members.index')" :active="request()->routeIs('members.index')">
+                {{ __('Members') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('loans.index')" :active="request()->routeIs('loans.index')">
+                {{ __('Loans') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('insurances.index')" :active="request()->routeIs('insurances.index')">
+                {{ __('Insurances') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('days.index')" :active="request()->routeIs('days.index')">
+                {{ __('Days') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('holidays.index')" :active="request()->routeIs('holidays.index')">
+                {{ __('Holidays') }}
             </x-responsive-nav-link>
         </div>
 

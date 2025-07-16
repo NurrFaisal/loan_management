@@ -7,6 +7,10 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SomiteeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\LoanController;
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\DayController;
+use App\Http\Controllers\HolidayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,25 +35,14 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::GET('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::GET('/employee', [EmployeeController::class, 'employee'])->name('employee');
-    Route::POST('/employee', [EmployeeController::class, 'store'])->name('employees.store');
-
-
-    Route::GET('/somitee', [SomiteeController::class, 'index'])->name('somitee');
-    Route::POST('/somitee', [SomiteeController::class, 'store'])->name('somitee.store');
-
-
-    Route::GET('/member', [MemberController::class, 'member'])->name('member');
-    Route::POST('/member', [MemberController::class, 'store'])->name('member.store');
-
-
-    Route::GET('/loan', [DashboardController::class, 'loan'])->name('loan');
-
-
-    Route::GET('/loan', [LoanController::class, 'loan'])->name('loan');
-    Route::GET('/loan', [LoanController::class, 'store'])->name('loan.store');
-
-
+    Route::resource('employees', EmployeeController::class);
+    Route::resource('somitees', SomiteeController::class);
+    Route::resource('members', MemberController::class);
+    Route::resource('loans', LoanController::class);
+    Route::resource('branches', BranchController::class);
+    Route::resource('insurances', InsuranceController::class);
+    Route::resource('days', DayController::class);
+    Route::resource('holidays', HolidayController::class);
 
     Route::GET('/cashbook', [DashboardController::class, 'cashbook'])->name('cashbook');
     Route::GET('/due-collection', [DashboardController::class, 'dueCollection'])->name('due-collection');

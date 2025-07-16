@@ -11,20 +11,31 @@ class Member extends Model
 
     protected $fillable = [
         'name',
-        'father_name',
-        'gender',
         'nid',
         'phone',
+        'address',
+        'photo',
         'somitee_id',
         'day_id',
-        'photo',
-        'address',
-        'admission_fee',
-        'status',
     ];
 
     public function somitee()
     {
-        return $this->belongsTo(Somitee::class, 'somitee_id');
+        return $this->belongsTo(Somitee::class);
+    }
+
+    public function day()
+    {
+        return $this->belongsTo(Day::class);
+    }
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
+
+    public function insurances()
+    {
+        return $this->hasMany(Insurance::class);
     }
 }

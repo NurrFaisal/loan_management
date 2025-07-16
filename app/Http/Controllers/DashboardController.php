@@ -3,12 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Employee;
+use App\Models\Loan;
+use App\Models\Member;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+        $employeeCount = Employee::count();
+        $loanCount = Loan::count();
+        $memberCount = Member::count();
+        $overdueLoanCount = Loan::where('status', 'overdue')->count(); // Assuming a 'overdue' status
+
+        return view('dashboard', compact('employeeCount', 'loanCount', 'memberCount', 'overdueLoanCount'));
     }
 
     public function somitee()
