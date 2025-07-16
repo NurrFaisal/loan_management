@@ -199,8 +199,6 @@
                     </li>
                     <li><a  href="{{route('member')}}">Members</a>
                     </li>
-                    <li><a href="{{route('loan')}}"> Loan</a>
-                    </li>
                     <li><a href="{{route('employee')}}"> Empolyee</a>
                     </li>
                     <li><a href="{{route('cashbook')}}"> Cashbook</a>
