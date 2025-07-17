@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('days', DayController::class);
     Route::resource('holidays', HolidayController::class);
 
+    Route::post('/dayend', [DashboardController::class, 'dayEnd'])->name('dayend');
+
     Route::GET('/cashbook', [DashboardController::class, 'cashbook'])->name('cashbook');
     Route::GET('/due-collection', [DashboardController::class, 'dueCollection'])->name('due-collection');
     Route::GET('/voucher', [DashboardController::class, 'voucher'])->name('voucher');

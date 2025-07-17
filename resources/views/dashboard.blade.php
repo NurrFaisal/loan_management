@@ -43,6 +43,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mt-4">
+                        <form action="{{ route('dayend') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-dark">Day End</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
