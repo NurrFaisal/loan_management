@@ -195,11 +195,11 @@
                 <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
                     <li><a href="{{route('dashboard')}}"> Daily Calection</a>
                     </li>
-                    <li><a  href="{{route('somitee')}}"> Somitees</a>
+                    <li><a  href="{{route('somitees.index')}}"> Somitees</a>
                     </li>
-                    <li><a  href="{{route('member')}}">Members</a>
+                    <li><a  href="{{route('members.index')}}">Members</a>
                     </li>
-                    <li><a href="{{route('employee')}}"> Empolyee</a>
+                    <li><a href="{{route('employees.index')}}"> Empolyee</a>
                     </li>
                     <li><a href="{{route('cashbook')}}"> Cashbook</a>
                     </li>

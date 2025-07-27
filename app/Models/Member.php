@@ -11,12 +11,15 @@ class Member extends Model
 
     protected $fillable = [
         'name',
+        'father_husband_name',
+        'gender',
         'nid',
         'phone',
-        'address',
-        'photo',
         'somitee_id',
-        'day_id',
+        'photo',
+        'status',
+        'address',
+        'admission_fee',
     ];
 
     public function somitee()
@@ -24,10 +27,6 @@ class Member extends Model
         return $this->belongsTo(Somitee::class);
     }
 
-    public function day()
-    {
-        return $this->belongsTo(Day::class);
-    }
 
     public function loans()
     {

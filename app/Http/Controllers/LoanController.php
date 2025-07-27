@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Models\Member;
 use App\Models\Somitee;
-use App\Models\Day;
 use App\Http\Requests\StoreLoanRequest;
 use App\Http\Requests\UpdateLoanRequest;
 use Illuminate\Http\Request;
@@ -17,7 +16,7 @@ class LoanController extends Controller
      */
     public function index()
     {
-        $loans = Loan::all();
+        $loans = Loan::with(['member', 'somitee'])->get();
         return view('loans.index', compact('loans'));
     }
 
@@ -28,8 +27,7 @@ class LoanController extends Controller
     {
         $members = Member::all();
         $somitees = Somitee::all();
-        $days = Day::all();
-        return view('loans.create', compact('members', 'somitees', 'days'));
+        return view('loans.create', compact('members', 'somitees'));
     }
 
     /**
@@ -56,8 +54,7 @@ class LoanController extends Controller
     {
         $members = Member::all();
         $somitees = Somitee::all();
-        $days = Day::all();
-        return view('loans.edit', compact('loan', 'members', 'somitees', 'days'));
+        return view('loans.edit', compact('loan', 'members', 'somitees'));
     }
 
     /**
@@ -76,5 +73,11 @@ class LoanController extends Controller
     {
         $loan->delete();
         return redirect()->route('loans.index')->with('success', 'Loan deleted successfully.');
+    }
+
+    public function getMembersBySomitee($somiteeId)
+    {
+        $members = Member::where('somitee_id', $somiteeId)->get();
+        return response()->json($members);
     }
 }

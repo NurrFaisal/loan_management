@@ -8,7 +8,7 @@
             <!-- Modal for Adding Somitee -->
             <div class="modal fade" id="somiteeModal" role="dialog">
                 <div class="modal-dialog modal-large">
-                    <form action="{{ route('somitee.store') }}" method="POST">
+                    <form action="{{ route('somitees.store') }}" method="POST">
                         @csrf
                         <div class="modal-content">
                             <div class="modal-header">
@@ -74,48 +74,26 @@
                                                 </div>
                                             </div>
 
-                                            {{-- Somitee Day --}}
+                                            {{-- Day --}}
                                             <div class="form-example-int mg-t-15">
                                                 <div class="form-group">
-                                                    <label for="somitee_day">Somitee Day</label>
+                                                    <label for="day_id">Day</label>
                                                     <div class="chosen-select-act nk-int-st">
-                                                        <select name="somitee_day" id="somitee_day" class="form-control input-sm chosen" data-placeholder="Select a Day">
+                                                        <select name="day_id" id="day_id" class="form-control input-sm chosen" data-placeholder="Select a Day">
                                                             <option value="">Select One</option>
-                                                            @foreach(['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as $day)
-                                                                <option value="{{ $day }}" {{ old('somitee_day') == $day ? 'selected' : '' }}>{{ $day }}</option>
+                                                            @foreach($days as $day)
+                                                                <option value="{{ $day->id }}" {{ old('day_id') == $day->id ? 'selected' : '' }}>
+                                                                    {{ $day->name }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    @error('somitee_day')
+                                                    @error('day_id')
                                                     <p class="text-danger">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                             </div>
 
-                                            {{-- Date Input --}}
-                                            <div class="form-group nk-datapk-ctm form-elet-mg mg-t-15" id="data_1">
-                                                <label style="font-weight: 400;" for="date_input">Date</label>
-                                                <div class="input-group date nk-int-st">
-                                                    <span class="input-group-addon"></span>
-                                                    <input type="text" id="date_input" name="date" class="form-control input-sm @error('date') is-invalid @enderror" placeholder="MM/DD/YYYY" value="{{ old('date', $defaultDate ?? '') }}">
-                                                </div>
-                                                @error('date')
-                                                <p class="text-danger">{{ $message }}</p>
-                                                @enderror
-                                            </div>
-
-                                            {{-- Description --}}
-                                            <div class="form-example-int mg-t-15">
-                                                <div class="form-group">
-                                                    <label for="description">Description</label>
-                                                    <div class="nk-int-st">
-                                                        <textarea name="description" id="description" class="form-control" rows="5">{{ old('description') }}</textarea>
-                                                    </div>
-                                                    @error('description')
-                                                    <p class="text-danger">{{ $message }}</p>
-                                                    @enderror
-                                                </div>
-                                            </div>
 
                                         </div>
                                     </div>
@@ -150,9 +128,7 @@
                                     <th>Name</th>
                                     <th>Employee</th>
                                     <th>Branch</th>
-                                    <th>Day ID</th>
-                                    <th>Somitee Day</th>
-                                    <th>Date</th>
+                                    <th>Day</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -161,16 +137,22 @@
                                     <tr>
                                         <td>{{ $somitee->id }}</td>
                                         <td>{{ $somitee->name }}</td>
-                                        <td>{{ $somitee->employee_id }}</td>
-                                        <td>{{ $somitee->branch_id }}</td>
-                                        <td>{{ $somitee->day_id }}</td>
-                                        <td>{{ $somitee->somitee_day }}</td>
-                                        <td>{{ $somitee->date }}</td>
-                                        <td>#</td>
+                                        <td>{{ $somitee->employee->name ?? 'N/A' }}</td>
+                                        <td>{{ $somitee->branch->name ?? 'N/A' }}</td>
+                                        <td>{{ $somitee->day->name ?? 'N/A' }}</td>
+                                        <td>
+                                            <a href="{{ route('somitees.show', $somitee->id) }}" class="btn btn-info btn-sm">View</a>
+                                            <a href="{{ route('somitees.edit', $somitee->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                            <form action="{{ route('somitees.destroy', $somitee->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="8" class="text-center">No Somitees Found.</td>
+                                        <td colspan="6" class="text-center">No Somitees Found.</td>
                                     </tr>
                                 @endforelse
                                 </tbody>

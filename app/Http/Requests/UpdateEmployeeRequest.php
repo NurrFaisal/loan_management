@@ -23,11 +23,11 @@ class UpdateEmployeeRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'father_name' => 'required|string|max:255',
+            'address' => 'required|string',
             'nid' => 'required|string|max:255|unique:employees,nid,' . $this->employee->id,
-            'salary' => 'required|numeric',
             'phone' => 'required|string|max:255|unique:employees,phone,' . $this->employee->id,
-            'email' => 'required|string|email|max:255|unique:employees,email,' . $this->employee->id,
-            'branch_id' => 'required|exists:branches,id',
+            'salary' => 'required|numeric',
         ];
     }
 }

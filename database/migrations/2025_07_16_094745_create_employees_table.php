@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('father_name');
+            $table->text('address');
             $table->string('nid')->unique();
-            $table->decimal('salary', 10, 2);
             $table->string('phone')->unique();
-            $table->string('email')->unique();
-            $table->unsignedBigInteger('branch_id');
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->decimal('salary', 10, 2);
             $table->timestamps();
         });
     }

@@ -23,12 +23,15 @@ class StoreMemberRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'father_husband_name' => 'required|string|max:255',
+            'gender' => 'required|in:male,female,other',
             'nid' => 'required|string|max:255|unique:members',
-            'phone' => 'required|string|max:255|unique:members',
-            'address' => 'required|string|max:255',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'phone' => 'required|string|max:255',
             'somitee_id' => 'required|exists:somitees,id',
-            'day_id' => 'required|exists:days,id',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status' => 'required|in:active,inactive,suspended',
+            'address' => 'required|string',
+            'admission_fee' => 'required|numeric|min:0',
         ];
     }
 }

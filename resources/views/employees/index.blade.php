@@ -21,11 +21,11 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Father Name</th>
+                            <th>Address</th>
                             <th>NID</th>
-                            <th>Salary</th>
                             <th>Phone</th>
-                            <th>Email</th>
-                            <th>Branch</th>
+                            <th>Salary</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -34,11 +34,11 @@
                             <tr>
                                 <td>{{ $employee->id }}</td>
                                 <td>{{ $employee->name }}</td>
+                                <td>{{ $employee->father_name }}</td>
+                                <td>{{ $employee->address }}</td>
                                 <td>{{ $employee->nid }}</td>
-                                <td>{{ $employee->salary }}</td>
                                 <td>{{ $employee->phone }}</td>
-                                <td>{{ $employee->email }}</td>
-                                <td>{{ $employee->branch->name }}</td>
+                                <td>{{ $employee->salary }}</td>
                                 <td>
                                     <a href="{{ route('employees.show', $employee->id) }}" class="btn btn-info btn-sm">View</a>
                                     <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-warning btn-sm">Edit</a>

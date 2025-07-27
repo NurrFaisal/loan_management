@@ -38,20 +38,6 @@ class DashboardController extends Controller
         return redirect()->route('dashboard')->with('success', 'Day ended successfully and new day added.');
     }
 
-    public function somitee()
-    {
-        return view('pages.somitee');
-    }
-
-    public function member()
-    {
-        return view('pages.member');
-    }
-
-    public function loan()
-    {
-        return view('pages.loan');
-    }
 
     public function cashbook()
     {

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use App\Models\Somitee;
-use App\Models\Day;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 use Illuminate\Http\Request;
@@ -17,7 +16,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Member::all();
+        $members = Member::with('somitee')->get();
         return view('members.index', compact('members'));
     }
 
@@ -27,8 +26,7 @@ class MemberController extends Controller
     public function create()
     {
         $somitees = Somitee::all();
-        $days = Day::all();
-        return view('members.create', compact('somitees', 'days'));
+        return view('members.create', compact('somitees'));
     }
 
     /**
@@ -60,8 +58,7 @@ class MemberController extends Controller
     public function edit(Member $member)
     {
         $somitees = Somitee::all();
-        $days = Day::all();
-        return view('members.edit', compact('member', 'somitees', 'days'));
+        return view('members.edit', compact('member', 'somitees'));
     }
 
     /**

@@ -10,12 +10,14 @@ class Loan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'member_id',
         'somitee_id',
+        'member_id',
         'loan_amount',
-        'loan_purpose',
+        'interest',
+        'total_payable',
+        'loan_type',
+        'installment',
         'status',
-        'day_id',
     ];
 
     public function member()
@@ -28,8 +30,4 @@ class Loan extends Model
         return $this->belongsTo(Somitee::class);
     }
 
-    public function day()
-    {
-        return $this->belongsTo(Day::class);
-    }
 }

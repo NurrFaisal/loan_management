@@ -47,14 +47,17 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="day_id" class="form-label">Day</label>
-                        <select class="form-control" id="day_id" name="day_id" required>
-                            <option value="">Select Day</option>
-                            @foreach ($days as $day)
-                                <option value="{{ $day->id }}" {{ old('day_id') == $day->id ? 'selected' : '' }}>{{ $day->name }}</option>
-                            @endforeach
-                        </select>
+                        <label for="day_id" class="form-label">Day (Auto-selected: Latest)</label>
+                        <input type="text" class="form-control" value="{{ $latestDay ? $latestDay->name : 'No days available' }}" readonly>
+                        <input type="hidden" name="day_id" value="{{ $latestDay ? $latestDay->id : '' }}">
                         @error('day_id')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3">{{ old('description') }}</textarea>
+                        @error('description')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

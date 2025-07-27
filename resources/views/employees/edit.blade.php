@@ -24,16 +24,23 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="nid" class="form-label">NID</label>
-                        <input type="text" class="form-control" id="nid" name="nid" value="{{ old('nid', $employee->nid) }}" required>
-                        @error('nid')
+                        <label for="father_name" class="form-label">Father Name</label>
+                        <input type="text" class="form-control" id="father_name" name="father_name" value="{{ old('father_name', $employee->father_name) }}" required>
+                        @error('father_name')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="salary" class="form-label">Salary</label>
-                        <input type="number" step="0.01" class="form-control" id="salary" name="salary" value="{{ old('salary', $employee->salary) }}" required>
-                        @error('salary')
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" name="address" rows="3" required>{{ old('address', $employee->address) }}</textarea>
+                        @error('address')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="nid" class="form-label">NID</label>
+                        <input type="text" class="form-control" id="nid" name="nid" value="{{ old('nid', $employee->nid) }}" required>
+                        @error('nid')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -45,21 +52,9 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $employee->email) }}" required>
-                        @error('email')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="branch_id" class="form-label">Branch</label>
-                        <select class="form-control" id="branch_id" name="branch_id" required>
-                            <option value="">Select Branch</option>
-                            @foreach ($branches as $branch)
-                                <option value="{{ $branch->id }}" {{ old('branch_id', $employee->branch_id) == $branch->id ? 'selected' : '' }}>{{ $branch->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('branch_id')
+                        <label for="salary" class="form-label">Salary</label>
+                        <input type="number" step="0.01" class="form-control" id="salary" name="salary" value="{{ old('salary', $employee->salary) }}" required>
+                        @error('salary')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

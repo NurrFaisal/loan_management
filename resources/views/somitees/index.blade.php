@@ -24,6 +24,7 @@
                             <th>Employee</th>
                             <th>Branch</th>
                             <th>Day</th>
+                            <th>Description</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -35,6 +36,7 @@
                                 <td>{{ $somitee->employee->name }}</td>
                                 <td>{{ $somitee->branch->name }}</td>
                                 <td>{{ $somitee->day->name }}</td>
+                                <td>{{ $somitee->description ? \Illuminate\Support\Str::limit($somitee->description, 50) : 'N/A' }}</td>
                                 <td>
                                     <a href="{{ route('somitees.show', $somitee->id) }}" class="btn btn-info btn-sm">View</a>
                                     <a href="{{ route('somitees.edit', $somitee->id) }}" class="btn btn-warning btn-sm">Edit</a>

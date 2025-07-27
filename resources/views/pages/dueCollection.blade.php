@@ -1,18 +1,19 @@
-@section('title', 'Due Collection | Gremeen')
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
-    <div class="normal-table-area">
-        <div class="container">
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ __('Due Collection') }}
+    </h2>
+</x-slot>
 
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="normal-table-list mg-t-30">
-                        <div class="basic-tb-hd">
-                            <h2>Due Collection</h2>
-                        </div>
-                        <div class="bsc-tbl-bdr">
-                            <table class="table table-bordered">
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 text-gray-900">
+                <h1 class="fs-4 mb-3">Due Collection</h1>
+                
+                <table class="table table-bordered">
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -36,10 +37,8 @@
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

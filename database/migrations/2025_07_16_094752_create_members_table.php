@@ -14,13 +14,16 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('father_husband_name');
+            $table->enum('gender', ['male', 'female', 'other']);
             $table->string('nid')->unique();
-            $table->string('phone')->unique();
-            $table->string('address');
-            $table->string('photo')->nullable();
+            $table->string('phone');
             $table->unsignedBigInteger('somitee_id');
             $table->foreign('somitee_id')->references('id')->on('somitees')->onDelete('cascade');
-            $table->unsignedBigInteger('day_id');
+            $table->string('photo')->nullable();
+            $table->enum('status', ['active', 'inactive', 'suspended'])->default('active');
+            $table->text('address');
+            $table->decimal('admission_fee', 10, 2);
             $table->timestamps();
         });
     }

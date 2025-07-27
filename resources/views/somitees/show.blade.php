@@ -28,6 +28,9 @@
                 <div class="mb-3">
                     <strong>Day:</strong> {{ $somitee->day->name }}
                 </div>
+                <div class="mb-3">
+                    <strong>Description:</strong> {{ $somitee->description ?? 'No description provided' }}
+                </div>
                 <a href="{{ route('somitees.index') }}" class="btn btn-secondary">Back to List</a>
             </div>
         </div>

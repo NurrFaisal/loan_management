@@ -17,7 +17,7 @@ class SomiteeController extends Controller
      */
     public function index()
     {
-        $somitees = Somitee::all();
+        $somitees = Somitee::with(['employee', 'branch', 'day'])->get();
         return view('somitees.index', compact('somitees'));
     }
 
@@ -28,8 +28,8 @@ class SomiteeController extends Controller
     {
         $employees = Employee::all();
         $branches = Branch::all();
-        $days = Day::all();
-        return view('somitees.create', compact('employees', 'branches', 'days'));
+        $latestDay = Day::latest('id')->first();
+        return view('somitees.create', compact('employees', 'branches', 'latestDay'));
     }
 
     /**
@@ -37,7 +37,12 @@ class SomiteeController extends Controller
      */
     public function store(StoreSomiteeRequest $request)
     {
-        Somitee::create($request->validated());
+        $data = $request->validated();
+        if (!isset($data['day_id'])) {
+            $latestDay = Day::latest('id')->first();
+            $data['day_id'] = $latestDay ? $latestDay->id : null;
+        }
+        Somitee::create($data);
         return redirect()->route('somitees.index')->with('success', 'Somitee created successfully.');
     }
 

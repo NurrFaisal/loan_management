@@ -20,13 +20,15 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Photo</th>
                             <th>Name</th>
+                            <th>Father/Husband</th>
+                            <th>Gender</th>
                             <th>NID</th>
                             <th>Phone</th>
-                            <th>Address</th>
-                            <th>Photo</th>
                             <th>Somitee</th>
-                            <th>Day</th>
+                            <th>Status</th>
+                            <th>Admission Fee</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -34,19 +36,23 @@
                         @foreach ($members as $member)
                             <tr>
                                 <td>{{ $member->id }}</td>
-                                <td>{{ $member->name }}</td>
-                                <td>{{ $member->nid }}</td>
-                                <td>{{ $member->phone }}</td>
-                                <td>{{ $member->address }}</td>
                                 <td>
                                     @if ($member->photo)
-                                        <img src="{{ asset('storage/' . $member->photo) }}" alt="Member Photo" width="50">
+                                        <img src="{{ url('storage/' . $member->photo) }}" alt="Member Photo" class="img-thumbnail" style="width: 60px; height: 60px; object-fit: cover;">
                                     @else
-                                        N/A
+                                        <div class="bg-light text-center d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; border-radius: 4px;">
+                                            <i class="fa fa-user text-muted"></i>
+                                        </div>
                                     @endif
                                 </td>
+                                <td>{{ $member->name }}</td>
+                                <td>{{ $member->father_husband_name }}</td>
+                                <td>{{ ucfirst($member->gender) }}</td>
+                                <td>{{ $member->nid }}</td>
+                                <td>{{ $member->phone }}</td>
                                 <td>{{ $member->somitee->name }}</td>
-                                <td>{{ $member->day->name }}</td>
+                                <td><span class="badge bg-{{ $member->status == 'active' ? 'success' : ($member->status == 'inactive' ? 'secondary' : 'warning') }}">{{ ucfirst($member->status) }}</span></td>
+                                <td>${{ number_format($member->admission_fee, 2) }}</td>
                                 <td>
                                     <a href="{{ route('members.show', $member->id) }}" class="btn btn-info btn-sm">View</a>
                                     <a href="{{ route('members.edit', $member->id) }}" class="btn btn-warning btn-sm">Edit</a>

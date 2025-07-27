@@ -14,6 +14,7 @@ class Somitee extends Model
         'employee_id',
         'branch_id',
         'day_id',
+        'description',
     ];
 
     public function employee()

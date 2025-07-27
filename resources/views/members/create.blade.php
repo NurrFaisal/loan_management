@@ -23,6 +23,25 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label for="father_husband_name" class="form-label">Father/Husband Name</label>
+                        <input type="text" class="form-control" id="father_husband_name" name="father_husband_name" value="{{ old('father_husband_name') }}" required>
+                        @error('father_husband_name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+                            <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                            <option value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>Other</option>
+                        </select>
+                        @error('gender')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         <label for="nid" class="form-label">NID</label>
                         <input type="text" class="form-control" id="nid" name="nid" value="{{ old('nid') }}" required>
                         @error('nid')
@@ -33,20 +52,6 @@
                         <label for="phone" class="form-label">Phone</label>
                         <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" required>
                         @error('phone')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}" required>
-                        @error('address')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="photo" class="form-label">Photo</label>
-                        <input type="file" class="form-control" id="photo" name="photo">
-                        @error('photo')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -63,14 +68,36 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="day_id" class="form-label">Day</label>
-                        <select class="form-control" id="day_id" name="day_id" required>
-                            <option value="">Select Day</option>
-                            @foreach ($days as $day)
-                                <option value="{{ $day->id }}" {{ old('day_id') == $day->id ? 'selected' : '' }}>{{ $day->name }}</option>
-                            @endforeach
+                        <label for="photo" class="form-label">Photo</label>
+                        <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+                        <small class="form-text text-muted">Accepted formats: JPEG, PNG, JPG, GIF, SVG (Max: 2MB)</small>
+                        @error('photo')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-control" id="status" name="status" required>
+                            <option value="">Select Status</option>
+                            <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
+                            <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                            <option value="suspended" {{ old('status') == 'suspended' ? 'selected' : '' }}>Suspended</option>
                         </select>
-                        @error('day_id')
+                        @error('status')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" name="address" rows="3" required>{{ old('address') }}</textarea>
+                        @error('address')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="admission_fee" class="form-label">Admission Fee</label>
+                        <input type="number" step="0.01" class="form-control" id="admission_fee" name="admission_fee" value="{{ old('admission_fee') }}" required>
+                        @error('admission_fee')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

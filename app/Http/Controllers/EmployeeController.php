@@ -24,8 +24,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $branches = Branch::all();
-        return view('employees.create', compact('branches'));
+        return view('employees.create');
     }
 
     /**
@@ -50,8 +49,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        $branches = Branch::all();
-        return view('employees.edit', compact('employee', 'branches'));
+        return view('employees.edit', compact('employee'));
     }
 
     /**

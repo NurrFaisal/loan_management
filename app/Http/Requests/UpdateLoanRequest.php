@@ -22,12 +22,14 @@ class UpdateLoanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'member_id' => 'required|exists:members,id',
             'somitee_id' => 'required|exists:somitees,id',
+            'member_id' => 'required|exists:members,id',
             'loan_amount' => 'required|numeric|min:0',
-            'loan_purpose' => 'required|string|max:255',
-            'status' => 'required|string|in:pending,approved,rejected,completed',
-            'day_id' => 'required|exists:days,id',
+            'interest' => 'required|numeric|min:0|max:100',
+            'total_payable' => 'required|numeric|min:0',
+            'loan_type' => 'required|in:Weekly,Monthly',
+            'installment' => 'required|numeric|min:0',
+            'status' => 'nullable|string|in:pending,approved,rejected,completed',
         ];
     }
 }

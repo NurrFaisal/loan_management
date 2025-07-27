@@ -11,17 +11,13 @@ class Employee extends Model
 
     protected $fillable = [
         'name',
+        'father_name',
+        'address',
         'nid',
-        'salary',
         'phone',
-        'email',
-        'branch_id',
+        'salary',
     ];
 
-    public function branch()
-    {
-        return $this->belongsTo(Branch::class);
-    }
 
     public function somitees()
     {

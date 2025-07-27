@@ -26,6 +26,7 @@ class UpdateSomiteeRequest extends FormRequest
             'employee_id' => 'required|exists:employees,id',
             'branch_id' => 'required|exists:branches,id',
             'day_id' => 'required|exists:days,id',
+            'description' => 'nullable|string',
         ];
     }
 }

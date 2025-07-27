@@ -20,12 +20,14 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Member</th>
                             <th>Somitee</th>
+                            <th>Member</th>
                             <th>Loan Amount</th>
-                            <th>Purpose</th>
+                            <th>Interest (%)</th>
+                            <th>Total Payable</th>
+                            <th>Loan Type</th>
+                            <th>Installment</th>
                             <th>Status</th>
-                            <th>Day</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -33,12 +35,18 @@
                         @foreach ($loans as $loan)
                             <tr>
                                 <td>{{ $loan->id }}</td>
-                                <td>{{ $loan->member->name }}</td>
                                 <td>{{ $loan->somitee->name }}</td>
-                                <td>{{ $loan->loan_amount }}</td>
-                                <td>{{ $loan->loan_purpose }}</td>
-                                <td>{{ $loan->status }}</td>
-                                <td>{{ $loan->day->name }}</td>
+                                <td>{{ $loan->member->name }}</td>
+                                <td>${{ number_format($loan->loan_amount, 2) }}</td>
+                                <td>{{ $loan->interest }}%</td>
+                                <td>${{ number_format($loan->total_payable, 2) }}</td>
+                                <td>{{ $loan->loan_type }}</td>
+                                <td>${{ number_format($loan->installment, 2) }}</td>
+                                <td>
+                                    <span class="badge bg-{{ $loan->status == 'approved' ? 'success' : ($loan->status == 'pending' ? 'warning' : ($loan->status == 'completed' ? 'primary' : 'danger')) }}">
+                                        {{ ucfirst($loan->status) }}
+                                    </span>
+                                </td>
                                 <td>
                                     <a href="{{ route('loans.show', $loan->id) }}" class="btn btn-info btn-sm">View</a>
                                     <a href="{{ route('loans.edit', $loan->id) }}" class="btn btn-warning btn-sm">Edit</a>

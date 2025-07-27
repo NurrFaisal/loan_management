@@ -20,19 +20,19 @@
                     <strong>Name:</strong> {{ $employee->name }}
                 </div>
                 <div class="mb-3">
-                    <strong>NID:</strong> {{ $employee->nid }}
+                    <strong>Father Name:</strong> {{ $employee->father_name }}
                 </div>
                 <div class="mb-3">
-                    <strong>Salary:</strong> {{ $employee->salary }}
+                    <strong>Address:</strong> {{ $employee->address }}
+                </div>
+                <div class="mb-3">
+                    <strong>NID:</strong> {{ $employee->nid }}
                 </div>
                 <div class="mb-3">
                     <strong>Phone:</strong> {{ $employee->phone }}
                 </div>
                 <div class="mb-3">
-                    <strong>Email:</strong> {{ $employee->email }}
-                </div>
-                <div class="mb-3">
-                    <strong>Branch:</strong> {{ $employee->branch->name }}
+                    <strong>Salary:</strong> {{ $employee->salary }}
                 </div>
                 <a href="{{ route('employees.index') }}" class="btn btn-secondary">Back to List</a>
             </div>

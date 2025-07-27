@@ -23,11 +23,11 @@ class StoreEmployeeRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'father_name' => 'required|string|max:255',
+            'address' => 'required|string',
             'nid' => 'required|string|max:255|unique:employees',
-            'salary' => 'required|numeric',
             'phone' => 'required|string|max:255|unique:employees',
-            'email' => 'required|string|email|max:255|unique:employees',
-            'branch_id' => 'required|exists:branches,id',
+            'salary' => 'required|numeric',
         ];
     }
 }

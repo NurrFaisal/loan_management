@@ -25,7 +25,8 @@ class StoreSomiteeRequest extends FormRequest
             'name' => 'required|string|max:255',
             'employee_id' => 'required|exists:employees,id',
             'branch_id' => 'required|exists:branches,id',
-            'day_id' => 'required|exists:days,id',
+            'day_id' => 'nullable|exists:days,id',
+            'description' => 'nullable|string',
         ];
     }
 }
