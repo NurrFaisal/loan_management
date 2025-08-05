@@ -11,6 +11,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\DayController;
 use App\Http\Controllers\HolidayController;
+use App\Http\Controllers\SomiteeDayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('insurances', InsuranceController::class);
     Route::resource('days', DayController::class);
     Route::resource('holidays', HolidayController::class);
+    Route::resource('somitee_days', SomiteeDayController::class);
 
     Route::post('/dayend', [DashboardController::class, 'dayEnd'])->name('dayend');
 

@@ -72,6 +72,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <script src="{{asset('assets/js')}}/notification/bootstrap-growl.min.js"></script>
 
+    <!-- Custom styling for Collection Days tab -->
+    <style>
+        .menu-it-icon-pro li a[href*="somitee_days"] {
+            background: linear-gradient(45deg, #00c292, #20b9ae);
+            color: white !important;
+            border-radius: 4px;
+            margin: 0 2px;
+            position: relative;
+        }
+        
+        .menu-it-icon-pro li a[href*="somitee_days"]:before {
+            content: "📅";
+            margin-right: 5px;
+        }
+        
+        .menu-it-icon-pro li a[href*="somitee_days"]:hover {
+            background: linear-gradient(45deg, #20b9ae, #00c292);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 194, 146, 0.3);
+        }
+        
+        /* Mobile menu styling */
+        .mobile-menu-nav li a[href*="somitee_days"] {
+            background: rgba(0, 194, 146, 0.1);
+            border-left: 3px solid #00c292;
+            font-weight: 600;
+        }
+        
+        .mobile-menu-nav li a[href*="somitee_days"]:before {
+            content: "📅 ";
+        }
+    </style>
+
 </head>
 
 <body>
@@ -101,42 +134,20 @@
                     <nav id="dropdown">
                         <ul class="mobile-menu-nav">
                             <li class="active"><a href="{{route('dashboard')}}"> Daily Calection</a></li>
-                            <li><a data-toggle="collapse" data-target="#demoevent" href="#">New Samety</a>
-                                <ul id="demoevent" class="collapse dropdown-header-top">
-                                    <li><a href="inbox.html">Inbox</a></li>
-                                    <li><a href="view-email.html">View Email</a></li>
-                                    <li><a href="compose-email.html">Compose Email</a></li>
-                                </ul>
-                            </li>
-                            <li><a data-toggle="collapse" data-target="#democrou" href="#">New Member</a>
-                                <ul id="democrou" class="collapse dropdown-header-top">
-                                    <li><a href="animations.html">Animations</a></li>
-                                    <li><a href="google-map.html">Google Map</a></li>
-                                    <li><a href="data-map.html">Data Maps</a></li>
-                                    <li><a href="code-editor.html">Code Editor</a></li>
-                                    <li><a href="image-cropper.html">Images Cropper</a></li>
-                                    <li><a href="wizard.html">Wizard</a></li>
-                                </ul>
-                            </li>
-                            <li><a data-toggle="collapse" data-target="#demolibra" href="#">New Loan</a>
-                                <ul id="demolibra" class="collapse dropdown-header-top">
-                                    <li><a href="flot-charts.html">Flot Charts</a></li>
-                                    <li><a href="bar-charts.html">Bar Charts</a></li>
-                                    <li><a href="line-charts.html">Line Charts</a></li>
-                                    <li><a href="area-charts.html">Area Charts</a></li>
-                                </ul>
-                            </li>
-                            <li><a data-toggle="collapse" data-target="#demodepart" href="#">Empolyee</a>
-                                <ul id="demodepart" class="collapse dropdown-header-top">
-                                    <li><a href="normal-table.html">Normal Table</a></li>
-                                    <li><a href="data-table.html">Data Table</a></li>
-                                </ul>
-                            </li>
-                            <li><a data-toggle="collapse" data-target="#demo" href="#">Cash Book</a>
-                                <ul id="demo" class="collapse dropdown-header-top">
-                                    <li><a href="form-elements.html">Form Elements</a></li>
-                                    <li><a href="form-components.html">Form Components</a></li>
-                                    <li><a href="form-examples.html">Form Examples</a></li>
+                            <li><a href="{{route('somitees.index')}}"> Somitees</a></li>
+                            <li><a href="{{route('somitee_days.index')}}"> Collection Days</a></li>
+                            <li><a href="{{route('members.index')}}"> Members</a></li>
+                            <li><a href="{{route('employees.index')}}"> Employees</a></li>
+                            <li><a href="{{route('cashbook')}}"> Cash Book</a></li>
+                            <li><a href="{{route('due-collection')}}"> Due Collection</a></li>
+                            <li><a href="{{route('voucher')}}"> Voucher</a></li>
+                            <li><a data-toggle="collapse" data-target="#demoother" href="#">Other Pages</a>
+                                <ul id="demoother" class="collapse dropdown-header-top">
+                                    <li><a href="{{route('branches.index')}}">Branches</a></li>
+                                    <li><a href="{{route('loans.index')}}">Loans</a></li>
+                                    <li><a href="{{route('insurances.index')}}">Insurance</a></li>
+                                    <li><a href="{{route('days.index')}}">Days</a></li>
+                                    <li><a href="{{route('holidays.index')}}">Holidays</a></li>
                                 </ul>
                             </li>
                             <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Vaucher</a>
@@ -196,6 +207,8 @@
                     <li><a href="{{route('dashboard')}}"> Daily Calection</a>
                     </li>
                     <li><a  href="{{route('somitees.index')}}"> Somitees</a>
+                    </li>
+                    <li><a  href="{{route('somitee_days.index')}}"> Collection Days</a>
                     </li>
                     <li><a  href="{{route('members.index')}}">Members</a>
                     </li>

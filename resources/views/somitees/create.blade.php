@@ -55,6 +55,24 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label for="somitee_day_id" class="form-label">Collection Day</label>
+                        <select class="form-control" id="somitee_day_id" name="somitee_day_id">
+                            <option value="">Select Collection Day</option>
+                            @foreach ($somiteeDays as $somiteeDay)
+                                <option value="{{ $somiteeDay->id }}" {{ old('somitee_day_id') == $somiteeDay->id ? 'selected' : '' }}>
+                                    {{ $somiteeDay->weekday }}
+                                    @if($somiteeDay->collection_time) 
+                                        - {{ \Carbon\Carbon::parse($somiteeDay->collection_time)->format('h:i A') }}
+                                    @endif
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('somitee_day_id')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                        <small class="form-text text-muted">Select the weekday for committee collections</small>
+                    </div>
+                    <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control" id="description" name="description" rows="3">{{ old('description') }}</textarea>
                         @error('description')

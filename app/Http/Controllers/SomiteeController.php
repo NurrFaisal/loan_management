@@ -6,6 +6,7 @@ use App\Models\Somitee;
 use App\Models\Employee;
 use App\Models\Branch;
 use App\Models\Day;
+use App\Models\SomiteeDay;
 use App\Http\Requests\StoreSomiteeRequest;
 use App\Http\Requests\UpdateSomiteeRequest;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class SomiteeController extends Controller
      */
     public function index()
     {
-        $somitees = Somitee::with(['employee', 'branch', 'day'])->get();
+        $somitees = Somitee::with(['employee', 'branch', 'day', 'somiteeDay'])->get();
         return view('somitees.index', compact('somitees'));
     }
 
@@ -29,7 +30,8 @@ class SomiteeController extends Controller
         $employees = Employee::all();
         $branches = Branch::all();
         $latestDay = Day::latest('id')->first();
-        return view('somitees.create', compact('employees', 'branches', 'latestDay'));
+        $somiteeDays = SomiteeDay::where('is_active', true)->orderBy('weekday')->get();
+        return view('somitees.create', compact('employees', 'branches', 'latestDay', 'somiteeDays'));
     }
 
     /**
@@ -62,7 +64,8 @@ class SomiteeController extends Controller
         $employees = Employee::all();
         $branches = Branch::all();
         $days = Day::all();
-        return view('somitees.edit', compact('somitee', 'employees', 'branches', 'days'));
+        $somiteeDays = SomiteeDay::where('is_active', true)->orderBy('weekday')->get();
+        return view('somitees.edit', compact('somitee', 'employees', 'branches', 'days', 'somiteeDays'));
     }
 
     /**
