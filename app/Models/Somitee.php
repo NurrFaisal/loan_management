@@ -14,7 +14,6 @@ class Somitee extends Model
         'employee_id',
         'branch_id',
         'day_id',
-        'somitee_day_id',
         'description',
     ];
 
@@ -46,10 +45,5 @@ class Somitee extends Model
     public function insurances()
     {
         return $this->hasMany(Insurance::class);
-    }
-
-    public function somiteeDay()
-    {
-        return $this->belongsTo(SomiteeDay::class, 'somitee_day_id');
     }
 }
